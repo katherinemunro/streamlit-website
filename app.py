@@ -1,5 +1,13 @@
 import streamlit as st
+from streamlit_option_menu import option_menu
+
+import home
+import speaking
+import teaching
 import web_copy
+import contact
+import data_science
+import writing
 
 # todo poss. add animation: https://www.youtube.com/watch?v=VqgUkExPvLY and https://lottiefiles.com/
 
@@ -18,28 +26,24 @@ local_css("style/style.css")  # todo personalise css
 # st.image(web_copy.BANNER_URL, caption='Hi. This is me, moderating TedX Innsbruck 2021')
 
 # Side menu
-section = st.sidebar.radio(label='What I do:',
-                           options=web_copy.SECTIONS.keys(), index=0)
+with st.sidebar:
+    st.write('##')
+    section = option_menu(menu_title='Menu:',
+                          options=web_copy.SECTIONS,
+                          default_index=0)
 
-st.header('Katherine Munro')
-st.subheader('Data Scientist. Computational Linguist. Speaker, author, teacher. Geek.')
-st.write(web_copy.INTRO)
-st.write(web_copy.CTA)
-st.write('\n')
-
-# todo create function. Possibly already set the default message here
-if section == 'Data Science':
-    st.header(web_copy.SECTIONS['Data Science']['head'])
-    st.write(web_copy.SECTIONS['Data Science']['body'])
+if section == 'Home':
+    home.display_home()
+elif section == 'Data Science':
+    data_science.display_data_science()
 elif section == 'Writing':
-    st.header(web_copy.SECTIONS['Writing']['head'])
-    st.write(web_copy.SECTIONS['Writing']['body'])
+    writing.display_writing()
 elif section == 'Speaking':
-    st.header(web_copy.SECTIONS['Speaking']['head'])
-    st.write(web_copy.SECTIONS['Speaking']['body'])
+    speaking.display_speaking()
 elif section == 'Teaching':
-    st.header(web_copy.SECTIONS['Teaching']['head'])
-    st.write(web_copy.SECTIONS['Teaching']['body'])
+    teaching.display_teaching()
+elif section == 'Contact':
+    contact.display_contact_form()
 else:
     st.write('')
 
@@ -49,26 +53,3 @@ else:
 #        st.image(web_copy.BOOK_IMG_URL)
 #    with text_col:
 #        st.write(web_copy.BOOK_BLURB)
-
-with st.container():
-    st.write("---")
-    st.header("Let's work together!")
-    st.write("##")
-
-    # Documentation: https://formsubmit.co/
-    contact_form = f"""
-    <form action="https://formsubmit.co/katherinemunro@89gmail.com" method="POST">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="text" name="name" placeholder="Your name" required>
-        <input type="email" name="email" placeholder="Your email" required>
-        <textarea name="message" placeholder="Hi, I'd like to enquire about your {section.lower()} services." required></textarea>
-        <button type="submit">Send</button>
-    </form>
-    """
-    l_col, m_col, r_col = st.columns((2, 1, 1))
-    with l_col:
-        st.markdown(contact_form, unsafe_allow_html=True)
-    with m_col:
-        st.empty()
-    with r_col:
-        st.image(web_copy.PROFILE_URL, width=200)
