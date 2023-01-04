@@ -6,6 +6,6 @@ INTRO = 'I\'m a Data Scientist and Data Science Ambassador in the e-commerce dom
 
 CTA = 'Use the left menu to learn more, and to access my social links and contact form.'
 
-PROFILE_URL = os.path.join('Images', 'smec_portrait_compressed.jpg')
+PROFILE_URL = os.path.join('Images', 'smec_portrait_round.jpg')
 
 SECTIONS = ['Home', 'Data Science', 'Writing', 'Speaking', 'Teaching', 'Contact']
