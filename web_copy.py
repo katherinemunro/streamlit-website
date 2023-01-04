@@ -5,7 +5,7 @@ INTRO = 'I\'m a Data Scientist and Data Science Ambassador in the e-commerce dom
 CTA = 'Use the left menu to learn more, and to access my social links and contact form.'
 
 BANNER_URL = r'Images\TedX_1.png'
-PROFILE_URL = r'Images\smec_portrait_compressed.jpg'
+PROFILE_URL = 'smec_portrait_compressed.jpg'
 
 SECTIONS = ['Home', 'Data Science', 'Writing', 'Speaking', 'Teaching', 'Contact']
 

@@ -34,8 +34,6 @@ def display_contact_form():
             st.empty()
         with r_col:
             Tweet("https://twitter.com/KatherineAMunro/status/1463090617832071174").component()
-            # st.image(web_copy.PROFILE_URL, width=200)
-
 
 class Tweet(object):
     def __init__(self, s, embed_str=False):
