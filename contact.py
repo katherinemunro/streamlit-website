@@ -1,5 +1,6 @@
 import streamlit as st
-import web_copy
+import requests
+import streamlit.components.v1 as components
 
 
 def display_contact_form():
@@ -11,9 +12,9 @@ def display_contact_form():
         with li_col:
             st.write(f"[LinkedIn]({'https://www.linkedin.com/in/katherine-munro/'}) 🤝")
         with tw_col:
-            st.write(f"[Twitter]({'https://twitter.com/KatherineAMunro'}) 🐦")
-        with me_col:
             st.write(f"[Medium]({'https://medium.com/@katherineamunro'}) 📖")
+        with me_col:
+            st.write(f"[Twitter]({'https://twitter.com/KatherineAMunro'}) 🐦")
         st.write("##")
 
         # Documentation: https://formsubmit.co/
@@ -26,10 +27,29 @@ def display_contact_form():
         <button type="submit">Send</button>
     </form>
     """
-        l_col, m_col, r_col = st.columns((12, 1, 4))
+        l_col, m_col, r_col = st.columns((8, 1, 8))
         with l_col:
             st.markdown(contact_form, unsafe_allow_html=True)
         with m_col:
             st.empty()
         with r_col:
-            st.image(web_copy.PROFILE_URL, width=200)
+            Tweet("https://twitter.com/KatherineAMunro/status/1463090617832071174").component()
+            # st.image(web_copy.PROFILE_URL, width=200)
+
+
+class Tweet(object):
+    def __init__(self, s, embed_str=False):
+        if not embed_str:
+            # Use Twitter's oEmbed API
+            # https://dev.twitter.com/web/embedded-tweets
+            api = "https://publish.twitter.com/oembed?url={}".format(s)
+            response = requests.get(api)
+            self.text = response.json()["html"]
+        else:
+            self.text = s
+
+    def _repr_html_(self):
+        return self.text
+
+    def component(self):
+        return components.html(self.text, height=600)
