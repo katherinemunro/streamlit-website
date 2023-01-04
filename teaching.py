@@ -1,4 +1,5 @@
 import streamlit as st
+import web_copy
 
 
 def display_teaching():
@@ -17,5 +18,6 @@ def display_teaching():
             """
         )
     with r_col:
-        st.video("https://youtu.be/i3S_KBz1nqA?t=10")
-        st.write('My lecture on predicting Customer Lifetime Value at PyData Yerevan, 2022')
+        st.video("https://youtu.be/i3S_KBz1nqA", start_time=10)
+        html_str = web_copy.caption("My lecture on predicting Customer Lifetime Value at PyData Yerevan, 2022")
+        st.components.v1.html(html_str)
