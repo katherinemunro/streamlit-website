@@ -1,5 +1,5 @@
-import streamlit as st
 import requests
+import streamlit as st
 import streamlit.components.v1 as components
 
 
@@ -34,6 +34,7 @@ def display_contact_form():
             st.empty()
         with r_col:
             Tweet("https://twitter.com/KatherineAMunro/status/1463090617832071174").component()
+
 
 class Tweet(object):
     def __init__(self, s, embed_str=False):

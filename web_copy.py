@@ -6,13 +6,6 @@ INTRO = 'I\'m a Data Scientist and Data Science Ambassador in the e-commerce dom
 
 CTA = 'Use the left menu to learn more, and to access my social links and contact form.'
 
-BANNER_URL = r'Images\TedX_1.png'
 PROFILE_URL = os.path.join('Images', 'smec_portrait_compressed.jpg')
 
 SECTIONS = ['Home', 'Data Science', 'Writing', 'Speaking', 'Teaching', 'Contact']
-
-BOOK_BLURB = 'I edited and co-wrote the textbook, \'The Handbook of Data Science and AI\''
-BOOK_IMG_URL = r'Images\Book_Portrait.jpeg'
-
-LI_BLURB = 'View my work history and posts on data science, AI, and tech in general.'
-L_IN_ICON = r'Images\LI-In-Bug.png'

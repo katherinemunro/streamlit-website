@@ -47,9 +47,3 @@ elif section == 'Contact':
 else:
     st.write('')
 
-# with st.container():
-#    image_col, text_col = st.columns((1, 3))
-#    with image_col:
-#        st.image(web_copy.BOOK_IMG_URL)
-#    with text_col:
-#        st.write(web_copy.BOOK_BLURB)
