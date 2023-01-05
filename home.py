@@ -10,5 +10,6 @@ def display_home():
         st.write(web_copy.INTRO)
         st.write(web_copy.CTA)
         st.write('\n')
+        web_copy.cv_download()
     with r_col:
         st.image(web_copy.PROFILE_URL, width=400)
