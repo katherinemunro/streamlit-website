@@ -43,7 +43,7 @@ elif section == 'Speaking':
 elif section == 'Teaching':
     teaching.display_teaching()
 elif section == 'Contact':
-    contact.display_contact_form()
+    contact.display_contact()
 else:
     st.write('')
 
